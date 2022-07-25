@@ -1,6 +1,6 @@
 import React from "react"; 
 import Hornbeasts from "./hornedBeasts";
-let arr = require('../data.json'); 
+let arr = require('./data.json'); 
    
 // const arr= [{
 //     "_id": 1,
