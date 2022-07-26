@@ -1,22 +1,67 @@
 import React from "react"; 
-import Cards from "./cards";
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+
+
 class Hornbeasts extends React.Component{
 
+    constructor(props) {
+            super(props);
+            this.state = {
+              clickCounter: 0,
+            };
+          }
+        
+          handleClick = () => {
+            this.setState({
+               clickCounter: this.state.clickCounter + 1,
+            });
+
+        }
+
+
+
     
-    render(){
+    render() {
         return(
             <>
-           <Cards title ={this.props.title} image_url= {this.props.imgUrl} description ={this.props.description}/>
+           {/* <Cards title ={this.props.title} image_url= {this.props.imgUrl} description ={this.props.description}/> */}
+
+           <Card style={{ width: '18rem' }}>
+      <Card.Img variant="top" src={this.props.imgUrl} onClick={this.handleClick} />
+      <Card.Body>
+        <Card.Title> {this.props.title} ❤ {this.state.clickCounter}</Card.Title>
+        <Card.Text>
+      {this.props.description}
+        </Card.Text>
+        <Button variant="primary">Go somewhere</Button>
+      </Card.Body>
+    </Card>
             </>    
         
         )
 
     }
 }
+
 export default Hornbeasts;
 
+// 
+
+// constructor(props) {
+//     super(props);
+//     this.state = {
+//       clickCounter: 0,
+//     };
+//   }
+
+//   handleClick = () => {
+//     this.setState({
+//        clickCounter: this.state.clickCounter + 1,
+//     });
 
 
+//     onClick={this.handleClick}
 
 
 

@@ -1,8 +1,12 @@
 import React from "react"; 
+import NavBar from './nav';
 class Header extends React.Component{
     render(){
         return(
-            <h1>Horned Animals</h1>
+            <>
+           <NavBar/>
+            <h1>Horned Beasts</h1>
+            </>
         )
     }
 }
