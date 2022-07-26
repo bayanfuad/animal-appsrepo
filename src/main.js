@@ -1,6 +1,10 @@
 import React from "react"; 
 import Hornbeasts from "./hornedBeasts";
-let arr = require('./data.json'); 
+import data from './data.json'
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+
+// let arr = require('./data.json'); 
    
 // const arr= [{
 //     "_id": 1,
@@ -32,17 +36,23 @@ let arr = require('./data.json');
 
 
 class Main extends React.Component {
-    render() {
+  render() {
     return (
-        <>
-           {arr.map((item)=> {
-            return ( 
-              <Hornbeasts imgUrl={item.image_url} title ={item.title} description ={item.description}/>
+        <Row xs={2} md={3} className="g-4">
+    {data.map((item) => 
+        {
+            return (
+                <Col>
+                <Hornbeasts imgUrl={item.image_url} title={item.title} description={item.description} />
+                </Col>
             )
-           }
-           )}
-        </>
-    );
-}
-}
+        }
+        )
+    }
+        </Row>
+    )
+    }
+
+  }
 export default Main;
+
