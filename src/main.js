@@ -2,6 +2,7 @@ import React from "react";
 import Hornbeasts from "./hornedBeasts";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Find from "./find";
 
 // let arr = require('./data.json'); 
    
@@ -34,25 +35,83 @@ import Row from 'react-bootstrap/Row';
 
 // displayModal={this.props.displayModal}
 
-class Main extends React.Component {
-  render() {
-    // console.log("this.props.allBeast", this.props.allBeast);
-    return (
-        <Row xs={2} md={3} className="g-4">
-    {this.props.allBeast.map((item,idx) => 
-     
-        
-          
-                <Col key={idx}>
-                <Hornbeasts  imgUrl={item.image_url} title={item.title} description={item.description}  displayModal={this.props.displayModal} data={item}/>
-                </Col>
-         
-        )
-    }
-        </Row>
-    )
-    }
+// class Main extends React.Component {
 
-  }
-export default Main;
+//     filteredBeasts() {
+//         if (Number(this.props.dataSelected) === 0) {
+//             return this.props.data.map((item, idx) =>
+
+
+
+//             <Col key={idx}>
+//            <Hornbeasts  imgUrl={item.image_url} title={item.title} description={item.description}  displayModal={this.props.displayModal} data={item}/>
+//                               </Col>
+
+//             )
+//         }
+//         else {
+//             return this.props.data.filter(item =>
+//                 (item.horns === Number(this.props.dataSelected))
+
+//             ).map((item, idx) => (
+//                 <Col key={idx}>
+//          <Hornbeasts  imgUrl={item.image_url} title={item.title} description={item.description}  displayModal={this.props.displayModal} data={item}/>
+//                                    </Col>
+//             )
+//             )
+//         }
+//     }
+
+//     render() {
+//         return (
+//             <>
+//                 <Find horns={this.props.filtered} />
+//                 <Row xs={2} md={3} className="g-4">
+//                         {this.filteredBeasts()}
+//                     </Row>
+                
+//             </>
+//         )
+//     }
+// }
+// export default Main;
+
+
+
+
+
+
+
+
+
+// export default Main;
+
+
+
+
+
+
+
+
+class Main extends React.Component {
+      render() {
+        
+        return (
+            <Row xs={2} md={3} className="g-4">
+        {this.props.allBeast.map((item,idx) => 
+         
+            
+              
+                    <Col key={idx}>
+                    <Hornbeasts  imgUrl={item.image_url} title={item.title} description={item.description}  displayModal={this.props.displayModal} data={item}/>
+                    </Col>
+             
+            )
+        }
+            </Row>
+        )
+        }
+    
+      }
+    export default Main;
 
