@@ -1,6 +1,5 @@
 import React from "react"; 
 import Hornbeasts from "./hornedBeasts";
-import data from './data.json'
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
@@ -33,20 +32,21 @@ import Row from 'react-bootstrap/Row';
 //     "horns": 1
 // }]
 
-
+// displayModal={this.props.displayModal}
 
 class Main extends React.Component {
   render() {
+    // console.log("this.props.allBeast", this.props.allBeast);
     return (
         <Row xs={2} md={3} className="g-4">
-    {data.map((item) => 
-        {
-            return (
-                <Col>
-                <Hornbeasts imgUrl={item.image_url} title={item.title} description={item.description} />
+    {this.props.allBeast.map((item,idx) => 
+     
+        
+          
+                <Col key={idx}>
+                <Hornbeasts  imgUrl={item.image_url} title={item.title} description={item.description}  displayModal={this.props.displayModal} data={item}/>
                 </Col>
-            )
-        }
+         
         )
     }
         </Row>

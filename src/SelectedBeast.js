@@ -1,10 +1,10 @@
-import { render } from "@testing-library/react";
+
 import React from "react";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 
-class SelectedBeasts extends React.Component {
+class SelectedBeast extends React.Component {
     // constructor (props)
     // super(props)
     // this.state{
@@ -12,29 +12,30 @@ class SelectedBeasts extends React.Component {
     // }
 render(){
 
-return
-handleShow = ()=>{ this.setstate({showImage :true})}
+return(
+// handleShow = ()=>{ this.setstate({showImage :true})}
 
-handleClose = ()=>{ this.setstate({showImage :false})}
+// handleClose = ()=>{ this.setstate({showImage :false})}
     
-  
 
-
-    <>
-      <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-      </Button>
-
-      <Modal show={this.state.showImage} onHide={handleClose}>
+     
+     <Modal show={this.props.show} onHide={this.props.handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>{this.props.selectedBeast.title}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-        
+        <Modal.Body>
+          <img  width="100" src ={this.props.selectedBeast.image_url} alt={this.props.selectedBeast.title} />
+         {this.props.selectedBeast.description}
+          </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={this.props.handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
       </Modal>
-    </>
-  
+    
+)
 } 
 };
 
-export defult SelectedBeasts;
+export default SelectedBeast;
