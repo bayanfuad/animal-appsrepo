@@ -48,7 +48,7 @@ filtered = (hornsNum) => {
   return (
     <div className="App">
       <Header/>
-      <Main allBeast = {this.state.allBeast} displayModal= {this.displayModal} />
+      <Main allBeast = {this.state.allBeast} displayModal= {this.displayModal} filtered={this.filtered}/>
       <SelectedBeast show={this.state.showModal} handleClose={this.handleClose} selectedBeast ={this.state.selectedBeast}/>
       <Footer/>
     </div>
