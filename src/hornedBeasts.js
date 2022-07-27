@@ -14,8 +14,9 @@ class Hornbeasts extends React.Component{
         
           handleClick = () => {
             this.setState({
-               clickCounter: this.state.clickCounter + 1,
+               clickCounter: this.state.clickCounter + 1 
             });
+            this.props.displayModal(this.props.data);
 
         }
 
@@ -25,16 +26,16 @@ class Hornbeasts extends React.Component{
     render() {
         return(
             <>
-           {/* <Cards title ={this.props.title} image_url= {this.props.imgUrl} description ={this.props.description}/> */}
 
            <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={this.props.imgUrl} onClick={this.handleClick} />
+      <Card.Img variant="top" src={this.props.imgUrl} alt={this.props.title} onClick={this.handleClick} />
       <Card.Body>
         <Card.Title> {this.props.title} ❤ {this.state.clickCounter}</Card.Title>
         <Card.Text>
       {this.props.description}
         </Card.Text>
         <Button variant="primary">Go somewhere</Button>
+       
       </Card.Body>
     </Card>
             </>    
