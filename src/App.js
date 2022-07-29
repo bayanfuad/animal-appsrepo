@@ -14,8 +14,8 @@ class App extends Component  {
     this.state = {
       allBeast: data,
       selectedBeast:{},
-      showModal:true,
-      beasts: 0,
+      showModal:false,
+     
     }
 
   }
@@ -34,11 +34,13 @@ handleClose = ()=>{
   });   
 }
 
-
-filtered = (hornsNum) => {
-  this.setState({
-    beasts: hornsNum
-  })
+filterBeastByHornNumber = (e)=>{
+const hornNumber = parseInt(e.target.value);
+let filteredData = data;
+if(hornNumber){
+  filteredData= data.filter(item => item.horns === hornNumber); 
+}
+this.setState({allBeast : filteredData})
 }
 
 
@@ -48,7 +50,7 @@ filtered = (hornsNum) => {
   return (
     <div className="App">
       <Header/>
-      <Main allBeast = {this.state.allBeast} displayModal= {this.displayModal} filtered={this.filtered}/>
+      <Main allBeast = {this.state.allBeast} displayModal= {this.displayModal}  filterBeastByHornNumber= {this.filterBeastByHornNumber}/>
       <SelectedBeast show={this.state.showModal} handleClose={this.handleClose} selectedBeast ={this.state.selectedBeast}/>
       <Footer/>
     </div>

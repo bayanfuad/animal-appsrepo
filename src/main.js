@@ -2,7 +2,8 @@ import React from "react";
 import Hornbeasts from "./hornedBeasts";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import Find from "./find";
+import Form from 'react-bootstrap/Form';
+
 
 // let arr = require('./data.json'); 
    
@@ -89,14 +90,31 @@ import Find from "./find";
 
 
 
-
+// adding filter
 
 
 
 class Main extends React.Component {
+  filterData = (e)=>{
+    this.props.filterBeastByHornNumber(e)
+  }
       render() {
         
         return (
+          <>
+
+        <Form.Group className="mb-3">
+          <Form.Label htmlFor="disabledSelect">Disabled select menu</Form.Label>
+          <Form.Select id="disabledSelect" onChange={this.filterData}>
+            <option value=''>All</option>
+            <option value='1'>One</option>
+            <option value='2'>Two</option>
+            <option value='3'>Three</option>
+            <option value='100'>Wow</option>
+          </Form.Select>
+        </Form.Group>
+
+
             <Row xs={2} md={3} className="g-4">
         {this.props.allBeast.map((item,idx) => 
          
@@ -109,6 +127,7 @@ class Main extends React.Component {
             )
         }
             </Row>
+            </>
         )
         }
     
